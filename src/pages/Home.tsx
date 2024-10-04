@@ -8,6 +8,13 @@ const Home: React.FC = () => {
     await Browser.open({ url: 'https://msso1-uat.mercer.com/adfs/ls/idpinitiatedsignon.aspx?loginToRp=https%3A%2F%2Fshashi.skordev.com%2Fprofiles%2Fsso%2Fbya%2Fmetadata' });
   };
 
+  const openInAppBrowser = async () => {
+    await Browser.open({
+      url: 'https://msso1-uat.mercer.com/adfs/ls/idpinitiatedsignon.aspx?loginToRp=https%3A%2F%2Fshashi.skordev.com%2Fprofiles%2Fsso%2Fbya%2Fmetadata',
+      presentationStyle: 'fullscreen',
+    });
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -17,6 +24,7 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
         <IonButton expand="block" onClick={openWebView}>Open WebView</IonButton>
+        <IonButton expand="block" onClick={openInAppBrowser}>Open In-App Browser</IonButton>
       </IonContent>
     </IonPage>
   );
